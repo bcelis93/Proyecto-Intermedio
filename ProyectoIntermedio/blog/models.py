@@ -18,13 +18,19 @@ class Libro(models.Model):
     class Meta:
         verbose_name_plural = "Libros"
 
-    título = models.CharField(max_length=30)
-    género = models.CharField(max_length=30)
-    publicación = models.DateField(null=True)
+    titulo = models.CharField(max_length=30)
+    genero = models.CharField(max_length=30)
+    publicacion = models.DateField(null=True)
+
+    def __str__(self):
+        return self.titulo, self.genero, self.publicacion
 
 
-class Analisis(models.Model):
+class Editorial(models.Model):
     class Meta:
-        verbose_name_plural = "Análisis"
+        verbose_name_plural = "Editorial"
 
-    texto = models.CharField(max_length=1500)
+    nombre = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.nombre

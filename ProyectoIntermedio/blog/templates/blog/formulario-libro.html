@@ -7,10 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Formulario</title>
 </head>
-<body style="background-color: rgb(190, 102, 115);">
+<body style="background-color: rgb(106, 120, 185);">
     <form action="/blog/formulario/" method="POST">{% csrf_token %}
-        <p>Nombre: <input type="text" name="nombre"> </p>
-        <p>Apellido: <input type="text" name="apellido"> </p>
+        <p>Título: <input type="text" name="titulo"> </p>
+        <p>Género: <input type="text" name="genero"> </p>
+        <p>Publicación: <input type="date" name="publicacion"> </p>
         <input type="submit" value="Guardar">
     </form>
 </body>

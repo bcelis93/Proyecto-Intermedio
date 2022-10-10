@@ -1,6 +1,6 @@
 from http.client import HTTPResponse
 from django.shortcuts import render
-from blog.models import Autor
+from blog.models import Autor, Libro, Editorial
 from django.http import HttpResponse
 # Create your views here.
 
@@ -14,6 +14,22 @@ def procesar_formulario(request):
 
     autor = Autor(nombre=request.POST["nombre"], apellido=request.POST["apellido"])
     autor.save()
+    return render(request, "blog/inicio.html")
+
+def procesar_formulario_libro(request):
+    if request.method != "POST":
+        return render(request, "blog/formulario-libro.html")
+
+    libro = Libro(titulo=request.POST["titulo"], genero=request.POST["genero"], publicacion=request.POST["publicacion"] )
+    libro.save()
+    return render(request, "blog/inicio.html")
+
+def procesar_formulario_editorial(request):
+    if request.method != "POST":
+        return render(request, "blog/formulario-editorial.html")
+
+    editorial = Editorial(nombre=request.POST["nombre"])
+    editorial.save()
     return render(request, "blog/inicio.html")
 
 def busqueda(request):
